@@ -170,6 +170,32 @@ const L5AiClaimVerifier = lazy(() => import('./l5-ai').then((m) => ({ default: m
 const L5AiPrivacyAudit = lazy(() => import('./l5-ai').then((m) => ({ default: m.L5AiPrivacyAudit })))
 const L5CredentialDefence = lazy(() => import('./l5-ai').then((m) => ({ default: m.L5CredentialDefence })))
 
+// Band six, batch 1: the operations a small formula engine does not evaluate.
+const L5LookupBuilder = lazy(() => import('./l5-sheet').then((m) => ({ default: m.L5LookupBuilder })))
+const L5FilterBuilder = lazy(() => import('./l5-sheet').then((m) => ({ default: m.L5FilterBuilder })))
+const L5ChartBuilder = lazy(() => import('./l5-sheet').then((m) => ({ default: m.L5ChartBuilder })))
+const L5PivotBuilder = lazy(() => import('./l5-sheet').then((m) => ({ default: m.L5PivotBuilder })))
+const L5CalculatorSanity = lazy(() => import('./l5-calc').then((m) => ({ default: m.L5CalculatorSanity })))
+const L5CompoundModel = lazy(() => import('./l5-calc').then((m) => ({ default: m.L5CompoundModel })))
+const L5EmiModel = lazy(() => import('./l5-calc').then((m) => ({ default: m.L5EmiModel })))
+const L5SipModel = lazy(() => import('./l5-calc').then((m) => ({ default: m.L5SipModel })))
+const L5InflationModel = lazy(() => import('./l5-calc').then((m) => ({ default: m.L5InflationModel })))
+const L5RetirementModel = lazy(() => import('./l5-calc').then((m) => ({ default: m.L5RetirementModel })))
+const L5CagrModel = lazy(() => import('./l5-calc').then((m) => ({ default: m.L5CagrModel })))
+const L5NetworthModel = lazy(() => import('./l5-calc').then((m) => ({ default: m.L5NetworthModel })))
+const L5DebtPayoffModel = lazy(() => import('./l5-calc').then((m) => ({ default: m.L5DebtPayoffModel })))
+const L5RealReturnModel = lazy(() => import('./l5-calc').then((m) => ({ default: m.L5RealReturnModel })))
+const L5ScenarioPlanner = lazy(() => import('./l5-model').then((m) => ({ default: m.L5ScenarioPlanner })))
+const L5SensitivityModel = lazy(() => import('./l5-model').then((m) => ({ default: m.L5SensitivityModel })))
+const L5BestWorstModel = lazy(() => import('./l5-model').then((m) => ({ default: m.L5BestWorstModel })))
+const L5StressTestModel = lazy(() => import('./l5-model').then((m) => ({ default: m.L5StressTestModel })))
+const L5DocumentInventory = lazy(() => import('./l5-security').then((m) => ({ default: m.L5DocumentInventory })))
+const L5SecureStorageSetup = lazy(() => import('./l5-security').then((m) => ({ default: m.L5SecureStorageSetup })))
+const L5BackupPlanner = lazy(() => import('./l5-security').then((m) => ({ default: m.L5BackupPlanner })))
+const L5SecurityHardening = lazy(() => import('./l5-security').then((m) => ({ default: m.L5SecurityHardening })))
+const L5AutomationDesigner = lazy(() => import('./l5-security').then((m) => ({ default: m.L5AutomationDesigner })))
+const L5EmergencySeparation = lazy(() => import('./l5-security').then((m) => ({ default: m.L5EmergencySeparation })))
+
 /** Placeholder shown while a sim chunk is in flight. */
 function SimLoading() {
   return (
@@ -1467,6 +1493,222 @@ export const SIMS: Record<SimName, SimMeta> = {
     C: () => (
       <Suspense fallback={<SimLoading />}>
         <L5CredentialDefence />
+      </Suspense>
+    ),
+  },
+  'l5-lookup-builder': {
+    title: 'Lookup builder',
+    blurb: 'Resolve a folio code across columns, and decide what a missing key should return.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5LookupBuilder />
+      </Suspense>
+    ),
+  },
+  'l5-filter-builder': {
+    title: 'Filter builder',
+    blurb: 'Write one condition, watch which rows pass, and see why a spill needs empty space.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5FilterBuilder />
+      </Suspense>
+    ),
+  },
+  'l5-chart-builder': {
+    title: 'Chart builder',
+    blurb: 'Match four questions to four charts, then move a bar chart axis and watch the story change.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5ChartBuilder />
+      </Suspense>
+    ),
+  },
+  'l5-pivot-builder': {
+    title: 'Pivot builder',
+    blurb: 'Fold twelve transactions into a grid, then change the rows, columns and measure.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5PivotBuilder />
+      </Suspense>
+    ),
+  },
+  'l5-calculator-sanity': {
+    title: 'Calculator sanity check',
+    blurb: 'Rebuild a quoted EMI and find the field whose unit breaks it.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5CalculatorSanity />
+      </Suspense>
+    ),
+  },
+  'l5-compound-model': {
+    title: 'Compound-interest model',
+    blurb: 'Move the compounding frequency and watch the effective rate, not the nominal one, change.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5CompoundModel />
+      </Suspense>
+    ),
+  },
+  'l5-emi-model': {
+    title: 'EMI and amortisation model',
+    blurb: 'Split every payment into interest and principal, then add an extra payment and price the saving.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5EmiModel />
+      </Suspense>
+    ),
+  },
+  'l5-sip-model': {
+    title: 'SIP model',
+    blurb: 'Compare a flat contribution with a step-up, and read the corpus as a range rather than a promise.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5SipModel />
+      </Suspense>
+    ),
+  },
+  'l5-inflation-model': {
+    title: 'Inflation model',
+    blurb: 'Restate a goal in future rupees, with the headline rate or the rate for that category.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5InflationModel />
+      </Suspense>
+    ),
+  },
+  'l5-retirement-model': {
+    title: 'Retirement model',
+    blurb: 'Build a corpus, draw it down through inflation, and move the retirement date.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5RetirementModel />
+      </Suspense>
+    ),
+  },
+  'l5-cagr-model': {
+    title: 'CAGR model',
+    blurb: 'Hold the endpoints fixed and change only the holding period: the annual rate moves.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5CagrModel />
+      </Suspense>
+    ),
+  },
+  'l5-networth-model': {
+    title: 'Net-worth model',
+    blurb: 'Apply market, conservative and distress valuations to the same balance sheet.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5NetworthModel />
+      </Suspense>
+    ),
+  },
+  'l5-debt-payoff-model': {
+    title: 'Debt-payoff model',
+    blurb: 'Aim the same extra rupees at the highest rate and the smallest balance, and compare the bills.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5DebtPayoffModel />
+      </Suspense>
+    ),
+  },
+  'l5-real-return-model': {
+    title: 'Real-return model',
+    blurb: 'Peel fees, tax and inflation off a headline return and compare three assets honestly.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5RealReturnModel />
+      </Suspense>
+    ),
+  },
+  'l5-scenario-planner': {
+    title: 'Scenario planner',
+    blurb: 'Pick a named future, see the plan it produces, and read the response written beside it.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5ScenarioPlanner />
+      </Suspense>
+    ),
+  },
+  'l5-sensitivity-model': {
+    title: 'Sensitivity model',
+    blurb: 'Rank four assumptions by how far they move goal coverage, then find the largest.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5SensitivityModel />
+      </Suspense>
+    ),
+  },
+  'l5-best-worst-model': {
+    title: 'Best-case and worst-case model',
+    blurb: 'Shrink the worst case until the essentials survive it without new borrowing.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5BestWorstModel />
+      </Suspense>
+    ),
+  },
+  'l5-stress-test-model': {
+    title: 'Stress-test model',
+    blurb: 'Run job loss, a rate rise and a market fall together and read the breaking point.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5StressTestModel />
+      </Suspense>
+    ),
+  },
+  'l5-document-inventory': {
+    title: 'Document inventory',
+    blurb: 'Mark what is located and what your family could reach, and find the missing row.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5DocumentInventory />
+      </Suspense>
+    ),
+  },
+  'l5-secure-storage-setup': {
+    title: 'Encrypted storage setup',
+    blurb: 'Put the ciphertext, the key and the recovery code in three different places.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5SecureStorageSetup />
+      </Suspense>
+    ),
+  },
+  'l5-backup-planner': {
+    title: 'Backup planner',
+    blurb: 'Count the copies, the media and the offsite one — then prove a restore.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5BackupPlanner />
+      </Suspense>
+    ),
+  },
+  'l5-security-hardening': {
+    title: 'Attack-surface hardening',
+    blurb: 'Close the doors that can reset the others first, and watch the weighted score move.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5SecurityHardening />
+      </Suspense>
+    ),
+  },
+  'l5-automation-designer': {
+    title: 'Automation designer',
+    blurb: 'Time the savings transfer after payday, cap the autopay, and keep one alert.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5AutomationDesigner />
+      </Suspense>
+    ),
+  },
+  'l5-emergency-separation': {
+    title: 'Emergency-money separation',
+    blurb: 'Move the fund behind a wall and see whether a ₹25,000 offer can still reach it.',
+    C: () => (
+      <Suspense fallback={<SimLoading />}>
+        <L5EmergencySeparation />
       </Suspense>
     ),
   },

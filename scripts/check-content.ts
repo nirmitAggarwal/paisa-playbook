@@ -75,6 +75,16 @@ const SIMS = new Set([
   'l5-ai-assistants', 'l5-ai-budget-review', 'l5-ai-formula-checker', 'l5-ai-policy-reader',
   'l5-ai-tutor-audit', 'l5-ai-stress-test', 'l5-ai-claim-verifier', 'l5-ai-privacy-audit',
   'l5-credential-defence',
+  // Level 5 labs — band six, batch 1: spreadsheets and models (l5-129 to l5-132)
+  'l5-lookup-builder', 'l5-filter-builder', 'l5-chart-builder', 'l5-pivot-builder',
+  // Level 5 labs — band six, batch 2: the calculators (l5-133 to l5-142)
+  'l5-calculator-sanity', 'l5-compound-model', 'l5-emi-model', 'l5-sip-model',
+  'l5-inflation-model', 'l5-retirement-model', 'l5-cagr-model', 'l5-networth-model',
+  'l5-debt-payoff-model', 'l5-real-return-model',
+  // Level 5 labs — batch 3 and security & habits batch 1 (l5-143 to l5-152)
+  'l5-scenario-planner', 'l5-sensitivity-model', 'l5-best-worst-model', 'l5-stress-test-model',
+  'l5-document-inventory', 'l5-secure-storage-setup', 'l5-backup-planner', 'l5-security-hardening',
+  'l5-automation-designer', 'l5-emergency-separation',
 ])
 const SCENES = new Set([
   'coins', 'barter', 'timeline', 'rupee', 'rupee-erode', 'money-flow', 'rbi-funnel', 'bank-pyramid',
@@ -150,6 +160,16 @@ const SCENES = new Set([
   // Level 5 illustrations — band five: AI tools (l5-114 to l5-122)
   'ai-assist-boundary', 'ai-budget-loop', 'ai-formula-test', 'doc-ai-verify', 'learning-loop',
   'ai-failure-modes', 'hallucination-hunt', 'redaction-filter', 'credential-wall',
+  // Level 5 illustrations — band six, batch 1: spreadsheets and models (l5-123 to l5-132)
+  'workbook-architecture', 'sheet-feature-map', 'reference-types', 'sum-traps', 'if-branch',
+  'criteria-grid', 'lookup-line', 'filter-sieve', 'chart-choice', 'pivot-cube',
+  // Level 5 illustrations — band six, batch 2: the calculators (l5-133 to l5-142)
+  'calculator-inputs', 'compound-curves', 'amortisation-stack', 'sip-ladder', 'inflation-bridge',
+  'retirement-phases', 'cagr-smoothing', 'networth-waterline', 'repayment-paths', 'real-return-layers',
+  // Level 5 illustrations — batch 3 and security & habits batch 1 (l5-143 to l5-152)
+  'scenario-fan', 'tornado-chart', 'case-range', 'stress-test-panel',
+  'document-inventory', 'encryption-layer', 'backup-rule', 'attack-surface',
+  'automation-loop', 'separation-wall',
 ])
 
 /** Every string a block renders, for source and wording checks. */

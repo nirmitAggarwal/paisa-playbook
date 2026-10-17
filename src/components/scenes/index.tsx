@@ -18,6 +18,10 @@ import * as l5l from './l5-life'
 import * as l5p from './l5-protect'
 import * as l5f from './l5-fraud'
 import * as l5a from './l5-ai'
+import * as l5sh from './l5-sheet'
+import * as l5c from './l5-calc'
+import * as l5m2 from './l5-model'
+import * as l5s2 from './l5-security'
 import * as level2 from './level2'
 import * as level3 from './level3'
 import * as level4 from './level4'
@@ -333,6 +337,40 @@ export const SCENES: Record<SceneName, SceneFn> = {
   'hallucination-hunt': () => <l5a.HallucinationHunt />,
   'redaction-filter': () => <l5a.RedactionFilter />,
   'credential-wall': () => <l5a.CredentialWall />,
+  // Level 5 — band six, batch 1: spreadsheets and models (l5-123 to l5-132)
+  'workbook-architecture': () => <l5sh.WorkbookArchitecture />,
+  'sheet-feature-map': () => <l5sh.SheetFeatureMap />,
+  'reference-types': () => <l5sh.ReferenceTypes />,
+  'sum-traps': () => <l5sh.SumTraps />,
+  'if-branch': () => <l5sh.IfBranch />,
+  'criteria-grid': () => <l5sh.CriteriaGrid />,
+  'lookup-line': () => <l5sh.LookupLine />,
+  'filter-sieve': () => <l5sh.FilterSieve />,
+  'chart-choice': () => <l5sh.ChartChoice />,
+  'pivot-cube': () => <l5sh.PivotCube />,
+  // Level 5 — band six, batch 2: the calculators (l5-133 to l5-142)
+  'calculator-inputs': () => <l5c.CalculatorInputs />,
+  'compound-curves': () => <l5c.CompoundCurves />,
+  'amortisation-stack': () => <l5c.AmortisationStack />,
+  'sip-ladder': () => <l5c.SipLadder />,
+  'inflation-bridge': () => <l5c.InflationBridge />,
+  'retirement-phases': () => <l5c.RetirementPhases />,
+  'cagr-smoothing': () => <l5c.CagrSmoothing />,
+  'networth-waterline': () => <l5c.NetworthWaterline />,
+  'repayment-paths': () => <l5c.RepaymentPaths />,
+  'real-return-layers': () => <l5c.RealReturnLayers />,
+  // Level 5 — band six, batch 3: scenarios, sensitivity, cases and stress
+  'scenario-fan': () => <l5m2.ScenarioFan />,
+  'tornado-chart': () => <l5m2.TornadoChart />,
+  'case-range': () => <l5m2.CaseRange />,
+  'stress-test-panel': () => <l5m2.StressTestPanel />,
+  // Level 5 — band seven, batch 1: documents, encryption, backups, security, automation, separation
+  'document-inventory': () => <l5s2.DocumentInventory />,
+  'encryption-layer': () => <l5s2.EncryptionLayer />,
+  'backup-rule': () => <l5s2.BackupRule />,
+  'attack-surface': () => <l5s2.AttackSurface />,
+  'automation-loop': () => <l5s2.AutomationLoop />,
+  'separation-wall': () => <l5s2.SeparationWall />,
 }
 
 export function Scene({ name, caption }: { name: SceneName; caption?: string }) {

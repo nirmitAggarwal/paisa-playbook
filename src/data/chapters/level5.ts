@@ -12,6 +12,10 @@ import { l5Life } from './l5-life'
 import { l5Protect } from './l5-protect'
 import { l5Fraud } from './l5-fraud'
 import { l5Ai } from './l5-ai'
+import { l5Sheet } from './l5-sheet'
+import { l5Calc } from './l5-calc'
+import { l5Model } from './l5-model'
+import { l5Security } from './l5-security'
 
 /**
  * Authored Level 5 chapters, keyed by chapter id.
@@ -47,6 +51,17 @@ import { l5Ai } from './l5-ai'
  *                  deepfakes, fake platforms and jobs, crypto schemes, social
  *                  engineering, and due diligence on products, returns, risk, liquidity,
  *                  fees and the regulator's register (l5-101 to l5-113)
+ *   l5-sheet.ts    band 6, batch 1 — workbook architecture, formulas and references,
+ *                  SUM, IF, SUMIFS, XLOOKUP, FILTER, charts and pivot tables
+ *                  (l5-123 to l5-132)
+ *   l5-calc.ts     band 6, batch 2 — the calculator band: the sanity checks, then
+ *                  compound interest, EMI, SIP, inflation, retirement, CAGR,
+ *                  net worth, debt repayment and real return (l5-133 to l5-142)
+ *   l5-model.ts    band 6, batch 3 — scenario, sensitivity, best/worst-case and
+ *                  stress testing on one household plan (l5-143 to l5-146)
+ *   l5-security.ts band 7, batch 1 — documents, encryption, backups, data
+ *                  security, automation and emergency-money separation
+ *                  (l5-147 to l5-152)
  *
  * The plan for every chapter — including the ones not yet written, with their
  * goal, topics, illustration, simulation and sources — lives in
@@ -69,4 +84,8 @@ export const level5: Record<string, Chapter> = {
   ...l5Protect,
   ...l5Fraud,
   ...l5Ai,
+  ...l5Sheet,
+  ...l5Calc,
+  ...l5Model,
+  ...l5Security,
 }

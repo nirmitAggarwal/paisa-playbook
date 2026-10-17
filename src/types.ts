@@ -320,6 +320,39 @@ export type SceneName =
         | 'hallucination-hunt'
         | 'redaction-filter'
         | 'credential-wall'
+  // Level 5 scenes, band six batch 1 (l5-123 to l5-132): spreadsheets and models
+  | 'workbook-architecture'
+  | 'sheet-feature-map'
+  | 'reference-types'
+  | 'sum-traps'
+  | 'if-branch'
+  | 'criteria-grid'
+  | 'lookup-line'
+  | 'filter-sieve'
+  | 'chart-choice'
+  | 'pivot-cube'
+  // Level 5 illustrations — band six, batch 2 (l5-133 to l5-142)
+  | 'calculator-inputs'
+  | 'compound-curves'
+  | 'amortisation-stack'
+  | 'sip-ladder'
+  | 'inflation-bridge'
+  | 'retirement-phases'
+  | 'cagr-smoothing'
+  | 'networth-waterline'
+  | 'repayment-paths'
+  | 'real-return-layers'
+  // Level 5 illustrations — batch 3 and security & habits batch 1 (l5-143 to l5-152)
+  | 'scenario-fan'
+  | 'tornado-chart'
+  | 'case-range'
+  | 'stress-test-panel'
+  | 'document-inventory'
+  | 'encryption-layer'
+  | 'backup-rule'
+  | 'attack-surface'
+  | 'automation-loop'
+  | 'separation-wall'
 
 /** Hands-on simulations. */
 export type SimName =
@@ -478,6 +511,33 @@ export type SimName =
   | 'l5-liquidity-stress'
   | 'l5-fee-audit'
   | 'l5-verify-entity'
+  // Level 5 labs, band six batch 1 (l5-129 to l5-132): lookups, filters, charts, pivots
+  | 'l5-lookup-builder'
+  | 'l5-filter-builder'
+  | 'l5-chart-builder'
+  | 'l5-pivot-builder'
+  // Level 5 labs, band six batch 2 (l5-133 to l5-142): the calculators
+  | 'l5-calculator-sanity'
+  | 'l5-compound-model'
+  | 'l5-emi-model'
+  | 'l5-sip-model'
+  | 'l5-inflation-model'
+  | 'l5-retirement-model'
+  | 'l5-cagr-model'
+  | 'l5-networth-model'
+  | 'l5-debt-payoff-model'
+  | 'l5-real-return-model'
+  // Level 5 labs, band six batch 3 and band seven batch 1 (l5-143 to l5-152)
+  | 'l5-scenario-planner'
+  | 'l5-sensitivity-model'
+  | 'l5-best-worst-model'
+  | 'l5-stress-test-model'
+  | 'l5-document-inventory'
+  | 'l5-secure-storage-setup'
+  | 'l5-backup-planner'
+  | 'l5-security-hardening'
+  | 'l5-automation-designer'
+  | 'l5-emergency-separation'
 
 export type QuizOption = { text: string; correct?: boolean; why: string }
 

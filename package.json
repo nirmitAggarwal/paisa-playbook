@@ -12,9 +12,11 @@
     "check": "tsx scripts/check-content.ts",
     "check:fonts": "tsx scripts/font-policy.ts",
     "test:sheet": "tsx scripts/check-sheet.ts",
+    "test:calc": "tsx scripts/check-calc.ts",
+    "test:model": "tsx scripts/check-model.ts",
     "test:sync": "tsx scripts/check-sync.ts",
     "test:e2e": "playwright test",
-    "test": "npm run check && npm run check:fonts && npm run test:sheet && npm run test:sync"
+    "test": "npm run check && npm run check:fonts && npm run test:sheet && npm run test:calc && npm run test:model && npm run test:sync"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.58.0",

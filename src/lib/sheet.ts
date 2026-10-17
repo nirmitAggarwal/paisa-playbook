@@ -28,15 +28,22 @@ export { colToNum, numToCol }
 
 const REF_RE = /^([A-Z]{1,3})([0-9]{1,5})$/
 
-/** Every cell address that a formula touches — used for dependency highlighting. */
+/**
+ * Every cell address that a formula touches — used for dependency highlighting.
+ *
+ * Addresses may be written with or without `$`; the anchors only decide what
+ * happens when the formula is copied, never what it reads, so both forms are
+ * reported as plain addresses here.
+ */
 export function refsUsed(formula: string): { refs: string[]; ranges: [string, string][] } {
   const refs: string[] = []
   const ranges: [string, string][] = []
-  const re = /([A-Z]{1,3}[0-9]{1,5})(?::([A-Z]{1,3}[0-9]{1,5}))?/g
+  const re = /(\$?[A-Z]{1,3}\$?[0-9]{1,5})(?::(\$?[A-Z]{1,3}\$?[0-9]{1,5}))?/g
+  const plain = (s: string) => s.replace(/\$/g, '')
   let m: RegExpExecArray | null
   while ((m = re.exec(formula.toUpperCase()))) {
-    if (m[2]) ranges.push([m[1], m[2]])
-    else refs.push(m[1])
+    if (m[2]) ranges.push([plain(m[1]), plain(m[2])])
+    else refs.push(plain(m[1]))
   }
   return { refs, ranges }
 }
@@ -83,15 +90,17 @@ function tokenize(src: string): Token[] {
       i = j
       continue
     }
-    const refMatch = /^([A-Z]{1,3}[0-9]{1,5})(:([A-Z]{1,3}[0-9]{1,5}))?/.exec(s.slice(i))
+    // `$A$1` is an absolute reference: the `$` pins the column or the row when
+    // the formula is copied. The evaluator reads the same cell either way.
+    const refMatch = /^\$?([A-Z]{1,3})\$?([0-9]{1,5})(?::\$?([A-Z]{1,3})\$?([0-9]{1,5}))?/.exec(s.slice(i))
     if (refMatch && !/^(TRUE|FALSE)$/.test(refMatch[1])) {
-      if (refMatch[2]) {
-        out.push({ t: 'range', v: [refMatch[1], refMatch[3]] })
-        i += refMatch[0].length
+      const from = `${refMatch[1]}${refMatch[2]}`
+      if (refMatch[3]) {
+        out.push({ t: 'range', v: [from, `${refMatch[3]}${refMatch[4]}`] })
       } else {
-        out.push({ t: 'ref', v: refMatch[1] })
-        i += refMatch[0].length
+        out.push({ t: 'ref', v: from })
       }
+      i += refMatch[0].length
       continue
     }
     const wordMatch = /^[A-Z_][A-Z0-9_.]*/.exec(s.slice(i))

@@ -46,6 +46,13 @@ const cases: [string, number | string][] = [
   ['=IF(C2>1000,"big","small")', 'big'],
   ['=SUM(C1:C4)-C2', 2000],
   ['=SUM(C1:C2)*2', 12000],
+  // Absolute references: the `$` pins a column, a row or both. The value is
+  // unchanged; what changes is what happens when the formula is copied.
+  ['=C1*$D$1', 40000000],
+  ['=$C$1+$C$2', 6000],
+  ['=SUM($C$1:$C$4)', 7000],
+  ['=$C2-$C1', 4000],
+  ['=IF($C$2>1000,"big","small")', 'big'],
 ]
 
 let failed = 0
